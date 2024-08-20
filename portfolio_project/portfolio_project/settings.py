@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for portfolio_project project.
 
@@ -25,7 +27,7 @@ SECRET_KEY = 'django-insecure-^7z*q!_%g-ryamm6nf*5i6#va_*5pwoyw9wfs#_jsptzo&rtfz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-goncalves95-myportfolio-aj8o0txlrzg.ws-eu115.gitpod.io']
 
 
 # Application definition
@@ -115,7 +117,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
