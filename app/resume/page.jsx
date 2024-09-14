@@ -30,27 +30,23 @@ const about = {
   info: [
     {
       fieldName: "Name",
-      fieldValue: "Luke Coleman",
+      fieldValue: "Fernando Gonçalves",
     },
     {
       fieldName: "Phone",
-      fieldValue: "(+40) 321 654 678",
+      fieldValue: "+41 77 814 84 79",
     },
     {
       fieldName: "Experience",
-      fieldValue: "12+ Years",
-    },
-    {
-      fieldName: "Skype",
-      fieldValue: "luke.01",
+      fieldValue: "2+ Years",
     },
     {
       fieldName: "Nationality",
-      fieldValue: "American",
+      fieldValue: "Portuguese",
     },
     {
       fieldName: "Email",
-      fieldValue: "luke.01@gmail.com",
+      fieldValue: "fernandojcg22@gmail.com",
     },
     {
       fieldName: "Freelance",
@@ -58,7 +54,7 @@ const about = {
     },
     {
       fieldName: "Languages",
-      fieldValue: "English, Spanish",
+      fieldValue: "English, German, Portuguese, Spanish",
     },
   ],
 };
