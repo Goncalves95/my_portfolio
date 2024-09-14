@@ -7,9 +7,20 @@ import {
   FaReact,
   FaFigma,
   FaNodeJs,
+  FaPython,
+  FaAws,
+  FaSlack,
+  FaBootstrap,
+  FaFlask,
+  FaGithub,
+  FaGitAlt,
+  FaLinux,
+  FaWordpressSimple,
+  FaGoogle,
+
 } from "react-icons/fa";
 
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango,  } from "react-icons/si";
 
 // about data
 const about = {
@@ -120,36 +131,108 @@ const skills = {
   skillList: [
     {
       icon: <FaHtml5 />,
-      name: "html 5",
+      name: "HTML 5",
     },
     {
       icon: <FaCss3 />,
-      name: "css 3",
+      name: "CSS 3",
     },
     {
       icon: <FaJs />,
-      name: "javascript",
+      name: "JavaScript",
     },
     {
       icon: <FaReact />,
-      name: "react.js",
+      name: "React.js",
     },
     {
       icon: <SiNextdotjs />,
-      name: "next.js",
+      name: "Next.js",
     },
     {
       icon: <SiTailwindcss />,
-      name: "tailwind.css",
+      name: "Tailwind.css",
     },
     {
       icon: <FaNodeJs />,
-      name: "node.js",
+      name: "Node.js",
+    },
+    {
+      icon: <FaPython />,
+      name: "Python",
+    },
+    {
+      icon: <FaFlask  />,
+      name: "Flask",
+    },
+    {
+      icon: <SiDjango  />,
+      name: "Django",
+    },
+    {
+      icon: <SiPandas />,
+      name: "Pandas",
+    },
+    {
+      icon: <SiNumpy />,
+      name: "NumPy",
+    },
+    {
+      icon: <SiScikitlearn />,
+      name: "Scikit-Learn",
+    },
+    {
+      icon: <FaAws />,
+      name: "AWS",
+    },
+    {
+      icon: <FaSlack />,
+      name: "Slack",
+    },
+    {
+      icon: <SiAdobe />,
+      name: "Adobe",
+    },
+    {
+      icon: <FaFlask  />,
+      name: "Flask",
+    },
+    {
+      icon: <FaBootstrap />,
+      name: "BootStrap",
+    },
+    {
+      icon: <SiHeroku />,
+      name: "Heroku",
+    },
+    {
+      icon: <FaGithub />,
+      name: "GitHub",
+    },
+    {
+      icon: <FaGitAlt />,
+      name: "Git",
     },
     {
       icon: <FaFigma />,
       name: "figma",
     },
+    {
+      icon: <FaWordpressSimple />,
+      name: "WordPress",
+    },
+    {
+      icon: <FaGoogle />,
+      name: "GoogleEnv",
+    },
+    {
+      icon: <SiMacos />,
+      name: "MacOS",
+    },
+    {
+      icon: <FaLinux />,
+      name: "Linux",
+    }
   ],
 };
 
