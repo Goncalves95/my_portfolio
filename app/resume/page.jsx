@@ -17,8 +17,11 @@ import {
   FaLinux,
   FaWordpressSimple,
   FaGoogle,
+  FaPhp,
 
 } from "react-icons/fa";
+
+import { TbBrandVscode } from "react-icons/tb";
 
 import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango,  } from "react-icons/si";
 
@@ -195,6 +198,10 @@ const skills = {
       name: "Git",
     },
     {
+      icon: <FaPhp />,
+      name: "PHP",
+    },
+    {
       icon: <FaFigma />,
       name: "figma",
     },
@@ -205,6 +212,10 @@ const skills = {
     {
       icon: <FaGoogle />,
       name: "GoogleEnv",
+    },
+    {
+      icon: <TbBrandVscode />,
+      name: "VisualStudioCode",
     },
     {
       icon: <SiMacos />,
