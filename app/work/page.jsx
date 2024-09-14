@@ -28,8 +28,8 @@ const projects = [
       "Website for a catering company using HTML and CSS.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }],
     image: "/assets/work/algarve_chef.png",
-    live: "https://goncalves95.github.io/Algarve_Chef_Prime/", target="_blank",
-    github: "https://github.com/Goncalves95/Algarve_Chef_Prime", target="_blank",
+    live: "https://goncalves95.github.io/Algarve_Chef_Prime/",
+    github: "https://github.com/Goncalves95/Algarve_Chef_Prime",
   },
   {
     num: "02",
@@ -39,8 +39,8 @@ const projects = [
       "Snake Game with javascript. Have Fun.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
     image: "/assets/work/responsive_snakegame.png",
-    live: "https://goncalves95.github.io/snake_game/", target="_blank",
-    github: "https://github.com/Goncalves95/snake_game", target="_blank",
+    live: "https://goncalves95.github.io/snake_game/",
+    github: "https://github.com/Goncalves95/snake_game",
   },
   {
     num: "03",
