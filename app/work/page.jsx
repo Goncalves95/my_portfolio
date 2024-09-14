@@ -50,8 +50,30 @@ const projects = [
       "Hangman Game with Python and DataBase.",
     stack: [{ name: "Python" }, { name: "Google API (sheets)" }],
     image: "/assets/work/responsive.png",
-    live: "",
-    github: "",
+    live: "https://hangman50-78a96d76c638.herokuapp.com/",
+    github: "https://github.com/Goncalves95/Hangman-5.0",
+  },
+  {
+    num: "04",
+    category: "Full Stack",
+    title: "project 4", 
+    description:
+      "A blog about Portugal's cuisine.",
+    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }, { name: "Python" },{ name: "PostgreSQL" }],
+    image: "/assets/work/lusobites.png",
+    live: "https://luso-bites-9e7b470f6cac.herokuapp.com/",
+    github: "https://github.com/Goncalves95/LusoBites",
+  },
+  {
+    num: "05",
+    category: "Data",
+    title: "project 3",
+    description:
+      "The Heritage Housing Ames project aims to provide a valuable tool for individuals looking to sell their houses in Ames, Iowa.",
+    stack: [{ name: "Python" }, { name: "NumPy" }, { name: "Pandas" }, { name: "SciKit-Learn " }, { name: "Seaborn" }],
+    image: "/assets/work/ames.png",
+    live: "https://heritage-housing-fernando-74a4ebdc845a.herokuapp.com/#heritage-housing-ames-usa",
+    github: "https://github.com/Goncalves95/PP5-Predictive-Analytics",
   },
 ];
 
