@@ -33,7 +33,7 @@ const projects = [
   },
   {
     num: "02",
-    category: "frontend",
+    category: "Snake Game",
     title: "project 2",
     description:
       "Snake Game with javascript. Have Fun.",
@@ -44,12 +44,12 @@ const projects = [
   },
   {
     num: "03",
-    category: "backend",
+    category: "Hangman Game",
     title: "project 3",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate magnam modi.",
-    stack: [{ name: "Next.js" }, { name: "Tailwind.css" }],
-    image: "/assets/work/thumb3.png",
+      "Hangman Game with Python and DataBase.",
+    stack: [{ name: "Python" }, { name: "Google API (sheets)" }],
+    image: "/assets/work/responsive.png",
     live: "",
     github: "",
   },
