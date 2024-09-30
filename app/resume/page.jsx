@@ -29,7 +29,7 @@ import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas,
 const about = {
   title: "About me",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "I'm Fernando Gonçalves, a passionate Full Stack Software Engineer specializing in Data Analytics and Machine Learning, eager to contribute to innovative software development projects. While my professional journey has just begun, I am determined to grow and rapidly develop my skills.",
   info: [
     {
       fieldName: "Name",
@@ -67,7 +67,7 @@ const experience = {
   icon: "/assets/resume/badge.svg",
   title: "My experience",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "My experience spans across both frontend and backend development. I have worked with various clients in web development, including restaurants and small brands. I specialize in web design and database-driven structures that enhance website interaction and seamless integration of new images and text.",
   items: [
     {
       company: "Freelancer - Zurich ",
@@ -111,7 +111,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "My background is in gastronomy, but I made a complete career shift to the software industry in 2023 when I started a bootcamp, which I have now completed with a total of 60 ECTS and a Level 8 on the European Qualifications Framework. Also in 2023, I began my Bachelor's degree in Computer Science. I am constantly eager to learn more and grow every day as a professional, striving to become better and more efficient in everything I do.",
   skillList: [
     {
       icon: <FaHtml5 />,
