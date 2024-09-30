@@ -20,7 +20,7 @@ const services = [
   },
   {
     num: "03",
-    title: "Logo Design",
+    title: "Web Design",
     description:
       "Building data foundations for informed decisions.",
     href: "",
