@@ -18,6 +18,7 @@ import {
   FaWordpressSimple,
   FaGoogle,
   FaPhp,
+  FaAngular,
 
 } from "react-icons/fa";
 
@@ -92,7 +93,7 @@ const education = {
   icon: "/assets/resume/cap.svg",
   title: "My education",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates quibusdam, sunt explicabo inventore.",
+    "My background is in gastronomy, but I made a complete career shift to the software industry in 2023 when I started a bootcamp, which I have now completed with a total of 60 ECTS and a Level 8 on the European Qualifications Framework. Also in 2023, I began my Bachelor's degree in Computer Science. I am constantly eager to learn more and grow every day as a professional, striving to become better and more efficient in everything I do.",
   items: [
     {
       institution: "Universidade Aberta Lisboa",
@@ -111,7 +112,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "My background is in gastronomy, but I made a complete career shift to the software industry in 2023 when I started a bootcamp, which I have now completed with a total of 60 ECTS and a Level 8 on the European Qualifications Framework. Also in 2023, I began my Bachelor's degree in Computer Science. I am constantly eager to learn more and grow every day as a professional, striving to become better and more efficient in everything I do.",
+    "This is some of my best Skillls",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -140,6 +141,10 @@ const skills = {
     {
       icon: <FaNodeJs />,
       name: "Node.js",
+    },
+    {
+      icon: <FaAngular />,
+      name: "Angular",
     },
     {
       icon: <FaPython />,
