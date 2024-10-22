@@ -1,35 +1,84 @@
-# HELLO!
+# Olá, eu sou Fernando Gonçalves! 👋
 
-## Welcome to my Protefolio,
+[![Website](https://img.shields.io/badge/Website-iamfernando.io-blue?style=flat-square&logo=google-chrome)](http://www.iamfernando.io)
+[![GitHub](https://img.shields.io/badge/GitHub-Goncalves95-blue?style=flat-square&logo=github)](https://github.com/Goncalves95)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fernando%20Gonçalves-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/seuperfil)
 
-### I'm Fernando Gonçalves,
-I'm a passionate Full Stack Software Engineer specializing in Data Analytics and Machine Learning, eager to contribute to innovative software development projects. While my professional journey has just begun, I am determined to grow and rapidly develop my skills. Currently, my key competencies include:
+markdownCopiar## 🚀 Sobre Mim
 
-Programming Languages: I am proficient in HTML5, CSS, JavaScript, Python, and have a strong foundation in coding.
+Sou Fernando Gonçalves, um Engenheiro de Software Full Stack de 29 anos, apaixonado e especializado em Análise de Dados e Machine Learning. Atualmente, estou baseado em Zurique, Suíça, onde busco oportunidades desafiadoras no cenário tecnológico internacional.
 
-Front-End Technologies: I have experience in front-end development, including the use of frameworks like React.
+Minha jornada profissional está apenas começando, mas estou determinado a crescer rapidamente e fazer contribuições significativas. Tenho um talento especial para debugging, uma habilidade que considero fundamental no desenvolvimento de software robusto e eficiente.
 
-Back-End Technologies: I am skilled in back-end development, utilizing technologies such as Node.js, Express.js, and databases like MongoDB and SQL.
+Minhas competências incluem:
 
-Data Analytics and Machine Learning: I have a growing expertise in data analysis and machine learning techniques, utilizing tools and libraries such as NumPy, Pandas, scikit-learn, TensorFlow, and SQL, and I frequently use Jupyter Notebooks for data visualization and analysis.
+- Desenvolvimento Full Stack com foco em tecnologias modernas
+- Análise de Dados e implementação de soluções de Machine Learning
+- Excelente capacidade de resolução de problemas e debugging
+- Adaptabilidade rápida a novas tecnologias e ambientes de trabalho
+- Comunicação eficaz em equipes multiculturais
 
-Continuous Learning: I am committed to enhancing my skills and knowledge through ongoing courses and practice.
+Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos inovadores. Minha localização em Zurique me coloca no coração de um dos centros tecnológicos mais dinâmicos da Europa, e estou ansioso para colaborar em projetos que impulsionem a indústria de tecnologia para frente.
 
-Academic Background:
+Se você procura um desenvolvedor dedicado, com uma mente analítica afiada e habilidades de debugging excepcionais, estou pronto para contribuir e crescer junto com sua equipe!
 
-* Diploma in Full Stack Software Development specializing in Data Analytics and Machine Learning from Code Institute
-* Bachelor's Degree in Software Engineering from Universidade Aberta Lisbon (2023 - 2025)
+## 💻 Competências Principais
 
-Personal Projects:
-GitHub - Goncalves95
+- **Linguagens de Programação:** HTML5, CSS, JavaScript, Python
+- **Tecnologias Front-End:** React
+- **Tecnologias Back-End:** Node.js, Express.js
+- **Bancos de Dados:** MongoDB, SQL
+- **Análise de Dados e Machine Learning:** NumPy, Pandas, scikit-learn, TensorFlow
+- **Ferramentas:** Jupyter Notebooks, Git
 
-I'm excited to advance my career as a Full Stack Software Developer specializing in Data Analytics and Machine Learning and am seeking opportunities that allow me to grow and contribute to challenging projects, particularly those involving data analytics and machine learning. If you are looking for a dedicated and enthusiastic team member for your development team, I'm ready to collaborate and learn.I'm a passionate Full Stack Software Engineer specializing in Data Analytics and Machine Learning, eager to contribute to innovative software development projects. While my professional journey has just begun, I am determined to grow and rapidly develop my skills. Currently, my key competencies include: Programming Languages: I am proficient in HTML5, CSS, JavaScript, Python, and have a strong foundation in coding. Front-End Technologies: I have experience in front-end development, including the use of frameworks like React. Back-End Technologies: I am skilled in back-end development, utilizing technologies such as Node.js, Express.js, and databases like MongoDB and SQL. Data Analytics and Machine Learning: I have a growing expertise in data analysis and machine learning techniques, utilizing tools and libraries such as NumPy, Pandas, scikit-learn, TensorFlow, and SQL, and I frequently use Jupyter Notebooks for data visualization and analysis. Continuous Learning: I am committed to enhancing my skills and knowledge through ongoing courses and practice. Academic Background: * Diploma in Full Stack Software Development specializing in Data Analytics and Machine Learning from Code Institute * Bachelor's Degree in Software Engineering from Universidade Aberta Lisbon (2023 - 2025) Personal Projects: GitHub - Goncalves95 I'm excited to advance my career as a Full Stack Software Developer specializing in Data Analytics and Machine Learning and am seeking opportunities that allow me to grow and contribute to challenging projects, particularly those involving data analytics and machine learning. If you are looking for a dedicated and enthusiastic team member for your development team, I'm ready to collaborate and learn.
+## 🎓 Formação Acadêmica
 
-Visit my [page](http://www.iamfernando.io) and look in my best projects.
-Thank you. 
+- **Diploma em Desenvolvimento de Software Full Stack** 
+  Especialização em Análise de Dados e Machine Learning
+  Code Institute
 
-@Goncalves95 - Iam Fernando Gonçalves #Iamfernando
+- **Bacharelado em Engenharia de Software** (2023 - 2025)
+  Universidade Aberta de Lisboa
 
+## 🛠️ Projetos Destacados
+
+1. **[Nome do Projeto 1](link_do_projeto)**
+   Breve descrição do projeto e tecnologias utilizadas.
+
+2. **[Nome do Projeto 2](link_do_projeto)**
+   Breve descrição do projeto e tecnologias utilizadas.
+
+3. **[Nome do Projeto 3](link_do_projeto)**
+   Breve descrição do projeto e tecnologias utilizadas.
+
+## 📈 Estatísticas do GitHub
+
+![Estatísticas do GitHub](https://github-readme-stats.vercel.app/api?username=Goncalves95&show_icons=true&theme=radical)
+
+## 🌱 Aprendizado Contínuo
+
+Estou constantemente aprimorando minhas habilidades através de cursos online, projetos pessoais e participação em comunidades de desenvolvedores. Atualmente, estou focado em aprofundar meus conhecimentos em:
+
+- Arquiteturas de microserviços
+- Desenvolvimento de APIs RESTful
+- Técnicas avançadas de Machine Learning
+- Cloud Computing (AWS, Azure)
+
+## 🤝 Vamos Conectar!
+
+Estou em busca de oportunidades para crescer como Desenvolvedor de Software Full Stack, com foco em Análise de Dados e Machine Learning. Se você está procurando um membro de equipe dedicado e entusiasta para seu time de desenvolvimento, estou pronto para colaborar e aprender!
+
+- 🌐 Website: [iamfernando.io](http://www.iamfernando.io)
+- 📧 Email: [seu_email@exemplo.com](mailto:seu_email@exemplo.com)
+- 💼 LinkedIn: [Fernando Gonçalves](https://www.linkedin.com/in/seuperfil)
+
+---
+
+⭐️ De [@Goncalves95](https://github.com/Goncalves95) - Fernando Gonçalves #IamFernando
+
+---
+---
+---
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
