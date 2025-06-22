@@ -42,7 +42,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "2+ Years",
+      fieldValue: "3+ Years",
     },
     {
       fieldName: "Nationality",
@@ -134,6 +134,10 @@ const skills = {
     {
       icon: <FaReact />,
       name: "React.js",
+    },
+    {
+      icon: <SiTypescript />,
+      name: "Typescript",
     },
     {
       icon: <SiNextdotjs />,
@@ -246,11 +250,7 @@ const skills = {
     {
       icon: <SiMysql />,
       name: "MySQL",
-    },
-    {
-      icon: <SiTypescript />,
-      name: "Typescript",
-    },
+    }
   ],
 };
 
