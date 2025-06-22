@@ -22,9 +22,9 @@ import {
 
 } from "react-icons/fa";
 
-import { TbBrandVscode } from "react-icons/tb";
+import { TbBrandVscode, TbFileTypeSql, TbBrandDocker } from "react-icons/tb";
 
-import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango,  } from "react-icons/si";
+import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango, SiTypescript, SiMysql, } from "react-icons/si";
 
 // about data
 const about = {
@@ -234,7 +234,23 @@ const skills = {
     {
       icon: <FaLinux />,
       name: "Linux",
-    }
+    },
+    {
+      icon: <TbBrandDocker />,
+      name: "Docker",
+    },
+    {
+      icon: <TbFileTypeSql />,
+      name: "SQL",
+    },
+    {
+      icon: <SiMysql />,
+      name: "MySQL",
+    },
+    {
+      icon: <SiTypescript />,
+      name: "Typescript",
+    },
   ],
 };
 
