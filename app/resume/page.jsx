@@ -71,9 +71,14 @@ const experience = {
     "My experience spans across both frontend and backend development. I have worked with various clients in web development, including restaurants and small brands. I specialize in web design and database-driven structures that enhance website interaction and seamless integration of new images and text.",
   items: [
     {
+      company: "Data Migration International",
+      position: "Software Developer",
+      duration: "12/2024 - Present",
+    },
+    {
       company: "Freelancer - Zurich ",
       position: "Full Stack Software Developer",
-      duration: "05/2024 - Present",
+      duration: "05/2024 - 12/2024",
     },
     {
       company: "Freelancer - Zurich",
