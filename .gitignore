@@ -84,6 +84,12 @@ jspm_packages/
 # public folder - we need it for CV and assets
 # public
 
+# Environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Storybook build outputs
 .out
 .storybook-out

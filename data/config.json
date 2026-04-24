@@ -1,0 +1,34 @@
+{
+  "profile": {
+    "yearsOfExperience": 3,
+    "realStartDate": "2021-06-01",
+    "additionalTechnologies": [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Azure",
+      "MongoDB",
+      "PostgreSQL",
+      "Redis",
+      "GraphQL",
+      "TypeScript",
+      "Jest",
+      "Cypress",
+      "Webpack",
+      "Vite",
+      "Jenkins",
+      "CI/CD",
+      "Agile",
+      "Scrum"
+    ]
+  },
+  "github": {
+    "username": "Goncalves95",
+    "excludePrivateRepos": true,
+    "personalAccessToken": ""
+  },
+  "stats": {
+    "overrideYearsOfExperience": true,
+    "additionalCommits": 500
+  }
+}
