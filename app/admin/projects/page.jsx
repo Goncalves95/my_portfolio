@@ -19,8 +19,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getProjects, addProject, updateProject, deleteProject } from "@/lib/projects";
-import { FiEdit2, FiTrash2, FiPlus, FiEye } from "react-icons/fi";
+import { getWorkProjects, addWorkProject, updateWorkProject, deleteWorkProject, getGitHubProjectsWithSettings, updateGitHubProjectSettings } from "@/lib/work-projects";
+import { FiEdit2, FiTrash2, FiPlus, FiEye, FiGithub, FiExternalLink } from "react-icons/fi";
+import { 
+  Switch
+} from "@/components/ui/switch";
 import Link from "next/link";
 
 const ProjectsAdmin = () => {
@@ -29,6 +32,7 @@ const ProjectsAdmin = () => {
   const [password, setPassword] = useState("");
   const [editingProject, setEditingProject] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [githubProjectSettings, setGithubProjectSettings] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -46,12 +50,18 @@ const ProjectsAdmin = () => {
   useEffect(() => {
     if (isAuthenticated) {
       loadProjects();
+      loadGithubProjectSettings();
     }
   }, [isAuthenticated]);
 
   const loadProjects = async () => {
-    const projectsData = await getProjects();
+    const projectsData = await getWorkProjects();
     setProjects(projectsData);
+  };
+
+  const loadGithubProjectSettings = async () => {
+    const settingsData = await getGitHubProjectsWithSettings();
+    setGithubProjectSettings(settingsData);
   };
 
   const handleLogin = (e) => {
@@ -69,13 +79,13 @@ const ProjectsAdmin = () => {
     const projectData = {
       ...formData,
       stack: formData.stack.split(",").map(s => s.trim()).filter(s => s),
-      featured: formData.featured === "true"
+      featured: formData.featured
     };
 
     if (editingProject) {
-      updateProject(editingProject.id, projectData);
+      updateWorkProject(editingProject.id, projectData);
     } else {
-      addProject(projectData);
+      addWorkProject(projectData);
     }
 
     loadProjects();
@@ -100,9 +110,39 @@ const ProjectsAdmin = () => {
 
   const handleDelete = (id) => {
     if (confirm("Tem certeza que deseja apagar este projeto?")) {
-      deleteProject(id);
+      deleteWorkProject(id);
       loadProjects();
     }
+  };
+
+  const handleToggleVisibility = async (projectId, visible) => {
+    const success = await updateGitHubProjectSettings(projectId, visible, undefined);
+    if (success) {
+      loadGithubProjectSettings();
+      loadProjects();
+    }
+  };
+
+  const moveProject = async (projectId, direction) => {
+    const sortedProjects = [...githubProjectSettings].sort((a, b) => a.order - b.order);
+    const currentIndex = sortedProjects.findIndex(p => p.id === projectId);
+    
+    if (direction === 'up' && currentIndex > 0) {
+      const currentProject = sortedProjects[currentIndex];
+      const prevProject = sortedProjects[currentIndex - 1];
+      
+      await updateGitHubProjectSettings(projectId, undefined, prevProject.order);
+      await updateGitHubProjectSettings(prevProject.id, undefined, currentProject.order);
+    } else if (direction === 'down' && currentIndex < sortedProjects.length - 1) {
+      const currentProject = sortedProjects[currentIndex];
+      const nextProject = sortedProjects[currentIndex + 1];
+      
+      await updateGitHubProjectSettings(projectId, undefined, nextProject.order);
+      await updateGitHubProjectSettings(nextProject.id, undefined, currentProject.order);
+    }
+    
+    loadGithubProjectSettings();
+    loadProjects();
   };
 
   const resetForm = () => {
@@ -272,6 +312,12 @@ const ProjectsAdmin = () => {
                     {project.featured && (
                       <span className="bg-accent text-primary px-2 py-1 rounded text-sm">Destaque</span>
                     )}
+                    {project.source === 'github' && (
+                      <span className="bg-blue-500 text-white px-2 py-1 rounded text-xs">GitHub</span>
+                    )}
+                    {project.source === 'github' && !project.visible && (
+                      <span className="bg-red-500 text-white px-2 py-1 rounded text-xs">Oculto</span>
+                    )}
                   </div>
                   <p className="text-white/60 mb-2">{project.description}</p>
                   <div className="flex items-center gap-4 text-sm text-white/40">
@@ -280,32 +326,68 @@ const ProjectsAdmin = () => {
                     <span>Techs: {Array.isArray(project.stack) ? project.stack.join(", ") : project.stack}</span>
                   </div>
                   <div className="flex gap-2 mt-3">
-                    <Link href={project.live} target="_blank" className="text-accent hover:text-accent-hover">
-                      <FiEye className="inline mr-1" /> Live
-                    </Link>
-                    <Link href={project.github} target="_blank" className="text-accent hover:text-accent-hover">
-                      GitHub
-                    </Link>
+                    {project.live && (
+                      <Link href={project.live} target="_blank" className="text-accent hover:text-accent-hover">
+                        <FiEye className="inline mr-1" /> Live
+                      </Link>
+                    )}
+                    {project.github && (
+                      <Link href={project.github} target="_blank" className="text-accent hover:text-accent-hover">
+                        <FiGithub className="inline mr-1" /> GitHub
+                      </Link>
+                    )}
                   </div>
                 </div>
                 
                 <div className="flex gap-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => handleEdit(project)}
-                    className="border-white/20"
-                  >
-                    <FiEdit2 />
-                  </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => handleDelete(project.id)}
-                    className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
-                  >
-                    <FiTrash2 />
-                  </Button>
+                  {project.source === 'github' ? (
+                    <>
+                      <div className="flex flex-col gap-1">
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => moveProject(project.id, 'up')}
+                          disabled={projects.filter(p => p.source === 'github').findIndex(p => p.id === project.id) === 0}
+                          className="border-white/20"
+                        >
+                          ↑
+                        </Button>
+                        <Button
+                          size="sm"
+                          variant="outline"
+                          onClick={() => moveProject(project.id, 'down')}
+                          disabled={projects.filter(p => p.source === 'github').findIndex(p => p.id === project.id) === projects.filter(p => p.source === 'github').length - 1}
+                          className="border-white/20"
+                        >
+                          ↓
+                        </Button>
+                      </div>
+                      
+                      <Switch
+                        checked={project.visible !== false}
+                        onCheckedChange={(checked) => handleToggleVisibility(project.id, checked)}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => handleEdit(project)}
+                        className="border-white/20"
+                      >
+                        <FiEdit2 />
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => handleDelete(project.id)}
+                        className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                      >
+                        <FiTrash2 />
+                      </Button>
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>
