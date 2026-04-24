@@ -18,7 +18,7 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-import { getProjects } from "@/lib/projects";
+import { getWorkProjects } from "@/lib/work-projects";
 
 const Work = () => {
   const [projects, setProjects] = useState([]);
@@ -26,7 +26,7 @@ const Work = () => {
 
   useEffect(() => {
     const loadProjects = async () => {
-      const projectsData = await getProjects();
+      const projectsData = await getWorkProjects();
       setProjects(projectsData);
       if (projectsData.length > 0) {
         setProject(projectsData[0]);
