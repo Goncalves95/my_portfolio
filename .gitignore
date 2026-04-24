@@ -81,7 +81,8 @@ jspm_packages/
 
 # Gatsby files
 .cache/
-public
+# public folder - we need it for CV and assets
+# public
 
 # Storybook build outputs
 .out
