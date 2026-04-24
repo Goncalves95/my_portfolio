@@ -6,6 +6,7 @@ import Link from "next/link";
 import Social from "@/components/Social";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
+import GithubRepos from "@/components/GithubRepos";
 
 const Home = () => {
   return (
@@ -49,6 +50,7 @@ const Home = () => {
         </div>
       </div>
       <Stats />
+      <GithubRepos />
     </section>
   );
 };
