@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -18,67 +18,23 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
-
-const projects = [
-  {
-    num: "01",
-    category: "frontend",
-    title: "project 1",
-    description:
-      "Website for a catering company using HTML and CSS.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }],
-    image: "/assets/work/algarve_chef.png",
-    live: "https://goncalves95.github.io/Algarve_Chef_Prime/",
-    github: "https://github.com/Goncalves95/Algarve_Chef_Prime",
-  },
-  {
-    num: "02",
-    category: "Snake Game",
-    title: "project 2",
-    description:
-      "Snake Game with javascript. Have Fun.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }],
-    image: "/assets/work/responsive_snakegame.png",
-    live: "https://goncalves95.github.io/snake_game/",
-    github: "https://github.com/Goncalves95/snake_game",
-  },
-  {
-    num: "03",
-    category: "Hangman Game",
-    title: "project 3",
-    description:
-      "Hangman Game with Python and DataBase.",
-    stack: [{ name: "Python" }, { name: "Google API (sheets)" }],
-    image: "/assets/work/responsive.png",
-    live: "https://hangman50-78a96d76c638.herokuapp.com/",
-    github: "https://github.com/Goncalves95/Hangman-5.0",
-  },
-  {
-    num: "04",
-    category: "Full Stack",
-    title: "project 4", 
-    description:
-      "A blog about Portugal's cuisine.",
-    stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "JavaScript" }, { name: "Python" },{ name: "PostgreSQL" }],
-    image: "/assets/work/lusobites.png",
-    live: "https://luso-bites-9e7b470f6cac.herokuapp.com/",
-    github: "https://github.com/Goncalves95/LusoBites",
-  },
-  {
-    num: "05",
-    category: "Data",
-    title: "project 3",
-    description:
-      "The Heritage Housing Ames project aims to provide a valuable tool for individuals looking to sell their houses in Ames, Iowa.",
-    stack: [{ name: "Python" }, { name: "NumPy" }, { name: "Pandas" }, { name: "SciKit-Learn " }, { name: "Seaborn" }],
-    image: "/assets/work/ames.png",
-    live: "https://heritage-housing-fernando-74a4ebdc845a.herokuapp.com/#heritage-housing-ames-usa",
-    github: "https://github.com/Goncalves95/PP5-Predictive-Analytics",
-  },
-];
+import { getProjects } from "@/lib/projects";
 
 const Work = () => {
-  const [project, setProject] = useState(projects[0]);
+  const [projects, setProjects] = useState([]);
+  const [project, setProject] = useState(null);
+
+  useEffect(() => {
+    const loadProjects = async () => {
+      const projectsData = await getProjects();
+      setProjects(projectsData);
+      if (projectsData.length > 0) {
+        setProject(projectsData[0]);
+      }
+    };
+    
+    loadProjects();
+  }, []);
 
   const handleSlideChange = (swiper) => {
     // get current slide index
@@ -86,6 +42,10 @@ const Work = () => {
     // update project state based on current slide index
     setProject(projects[currentIndex]);
   };
+
+  if (!project || projects.length === 0) {
+    return <div className="min-h-[80vh] flex items-center justify-center">Loading projects...</div>;
+  }
 
   return (
     <motion.section
@@ -115,7 +75,7 @@ const Work = () => {
                 {project.stack.map((item, index) => {
                   return (
                     <li key={index} className="text-xl text-accent">
-                      {item.name}
+                      {typeof item === 'string' ? item : item.name}
                       {/* remove the last comma */}
                       {index !== project.stack.length - 1 && ","}
                     </li>

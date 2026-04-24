@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "num": "01",
+    "category": "frontend",
+    "title": "Algarve Chef",
+    "description": "Website for a catering company using HTML and CSS.",
+    "stack": ["Html 5", "Css 3"],
+    "image": "/assets/work/algarve_chef.png",
+    "live": "https://goncalves95.github.io/Algarve_Chef_Prime/",
+    "github": "https://github.com/Goncalves95/Algarve_Chef_Prime",
+    "featured": true,
+    "dateAdded": "2024-01-15"
+  },
+  {
+    "id": 2,
+    "num": "02",
+    "category": "Snake Game",
+    "title": "Snake Game",
+    "description": "Snake Game with javascript. Have Fun.",
+    "stack": ["Html 5", "Css 3", "JavaScript"],
+    "image": "/assets/work/responsive_snakegame.png",
+    "live": "https://goncalves95.github.io/snake_game/",
+    "github": "https://github.com/Goncalves95/snake_game",
+    "featured": true,
+    "dateAdded": "2024-02-20"
+  },
+  {
+    "id": 3,
+    "num": "03",
+    "category": "Hangman Game",
+    "title": "Hangman Game",
+    "description": "Hangman Game with Python and DataBase.",
+    "stack": ["Python", "Google API (sheets)"],
+    "image": "/assets/work/responsive.png",
+    "live": "https://hangman50-78a96d76c638.herokuapp.com/",
+    "github": "https://github.com/Goncalves95/Hangman-5.0",
+    "featured": true,
+    "dateAdded": "2024-03-10"
+  },
+  {
+    "id": 4,
+    "num": "04",
+    "category": "Full Stack",
+    "title": "Luso Bites",
+    "description": "A blog about Portugal's cuisine.",
+    "stack": ["Html 5", "Css 3", "JavaScript", "Python", "PostgreSQL"],
+    "image": "/assets/work/lusobites.png",
+    "live": "https://luso-bites-9e7b470f6cac.herokuapp.com/",
+    "github": "https://github.com/Goncalves95/LusoBites",
+    "featured": true,
+    "dateAdded": "2024-04-05"
+  },
+  {
+    "id": 5,
+    "num": "05",
+    "category": "Data",
+    "title": "Heritage Housing",
+    "description": "The Heritage Housing Ames project aims to provide a valuable tool for individuals looking to sell their houses in Ames, Iowa.",
+    "stack": ["Python", "NumPy", "Pandas", "SciKit-Learn", "Seaborn"],
+    "image": "/assets/work/ames.png",
+    "live": "https://heritage-housing-fernando-74a4ebdc845a.herokuapp.com/#heritage-housing-ames-usa",
+    "github": "https://github.com/Goncalves95/PP5-Predictive-Analytics",
+    "featured": true,
+    "dateAdded": "2024-05-12"
+  }
+]

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const links = [
   {
@@ -28,6 +29,20 @@ const links = [
 
 const Nav = () => {
   const pathname = usePathname();
+  const [showAdminLink, setShowAdminLink] = useState(false);
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      // Press Ctrl+Shift+A to show/hide admin link
+      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
+        setShowAdminLink(!showAdminLink);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [showAdminLink]);
+
   return (
     <nav className="flex gap-8">
       {links.map((link, index) => {
@@ -43,6 +58,14 @@ const Nav = () => {
           </Link>
         );
       })}
+      {showAdminLink && (
+        <Link
+          href="/admin/projects"
+          className="text-red-500 font-medium hover:text-red-400 transition-all border border-red-500 px-2 rounded"
+        >
+          Admin
+        </Link>
+      )}
     </nav>
   );
 };

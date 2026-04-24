@@ -1,0 +1,329 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle, 
+  DialogTrigger 
+} from "@/components/ui/dialog";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { getProjects, addProject, updateProject, deleteProject } from "@/lib/projects";
+import { FiEdit2, FiTrash2, FiPlus, FiEye } from "react-icons/fi";
+import Link from "next/link";
+
+const ProjectsAdmin = () => {
+  const [projects, setProjects] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState("");
+  const [editingProject, setEditingProject] = useState(null);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    description: "",
+    stack: "",
+    image: "",
+    live: "",
+    github: "",
+    featured: false
+  });
+
+  // Simple password protection (you should change this password)
+  const ADMIN_PASSWORD = "fernando123";
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      loadProjects();
+    }
+  }, [isAuthenticated]);
+
+  const loadProjects = async () => {
+    const projectsData = await getProjects();
+    setProjects(projectsData);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    if (password === ADMIN_PASSWORD) {
+      setIsAuthenticated(true);
+    } else {
+      alert("Password incorreta!");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const projectData = {
+      ...formData,
+      stack: formData.stack.split(",").map(s => s.trim()).filter(s => s),
+      featured: formData.featured === "true"
+    };
+
+    if (editingProject) {
+      updateProject(editingProject.id, projectData);
+    } else {
+      addProject(projectData);
+    }
+
+    loadProjects();
+    resetForm();
+    setIsDialogOpen(false);
+  };
+
+  const handleEdit = (project) => {
+    setEditingProject(project);
+    setFormData({
+      title: project.title,
+      category: project.category,
+      description: project.description,
+      stack: Array.isArray(project.stack) ? project.stack.join(", ") : project.stack,
+      image: project.image,
+      live: project.live,
+      github: project.github,
+      featured: project.featured.toString()
+    });
+    setIsDialogOpen(true);
+  };
+
+  const handleDelete = (id) => {
+    if (confirm("Tem certeza que deseja apagar este projeto?")) {
+      deleteProject(id);
+      loadProjects();
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      title: "",
+      category: "",
+      description: "",
+      stack: "",
+      image: "",
+      live: "",
+      github: "",
+      featured: false
+    });
+    setEditingProject(null);
+  };
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-primary">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-[#27272c] p-8 rounded-xl max-w-md w-full mx-4"
+        >
+          <h1 className="text-3xl font-bold text-white mb-6">Admin Login</h1>
+          <form onSubmit={handleLogin} className="space-y-4">
+            <Input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="bg-[#1c1c22] border-white/10"
+            />
+            <Button type="submit" className="w-full">
+              Entrar
+            </Button>
+          </form>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-primary p-8">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="max-w-6xl mx-auto"
+      >
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-4xl font-bold text-white">Gestão de Projetos</h1>
+          <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+            <DialogTrigger asChild>
+              <Button onClick={resetForm} className="flex items-center gap-2">
+                <FiPlus /> Novo Projeto
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="bg-[#27272c] border-white/10 max-w-2xl">
+              <DialogHeader>
+                <DialogTitle className="text-white">
+                  {editingProject ? "Editar Projeto" : "Novo Projeto"}
+                </DialogTitle>
+              </DialogHeader>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <Input
+                    placeholder="Título"
+                    value={formData.title}
+                    onChange={(e) => setFormData({...formData, title: e.target.value})}
+                    className="bg-[#1c1c22] border-white/10"
+                    required
+                  />
+                  <Select value={formData.category} onValueChange={(value) => setFormData({...formData, category: value})}>
+                    <SelectTrigger className="bg-[#1c1c22] border-white/10">
+                      <SelectValue placeholder="Categoria" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="frontend">Frontend</SelectItem>
+                      <SelectItem value="backend">Backend</SelectItem>
+                      <SelectItem value="Full Stack">Full Stack</SelectItem>
+                      <SelectItem value="Data">Data</SelectItem>
+                      <SelectItem value="Mobile">Mobile</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <Textarea
+                  placeholder="Descrição"
+                  value={formData.description}
+                  onChange={(e) => setFormData({...formData, description: e.target.value})}
+                  className="bg-[#1c1c22] border-white/10"
+                  rows={3}
+                  required
+                />
+                
+                <Input
+                  placeholder="Tecnologias (separadas por vírgula)"
+                  value={formData.stack}
+                  onChange={(e) => setFormData({...formData, stack: e.target.value})}
+                  className="bg-[#1c1c22] border-white/10"
+                  required
+                />
+                
+                <Input
+                  placeholder="Caminho da imagem (ex: /assets/work/project.png)"
+                  value={formData.image}
+                  onChange={(e) => setFormData({...formData, image: e.target.value})}
+                  className="bg-[#1c1c22] border-white/10"
+                  required
+                />
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <Input
+                    placeholder="URL Live"
+                    value={formData.live}
+                    onChange={(e) => setFormData({...formData, live: e.target.value})}
+                    className="bg-[#1c1c22] border-white/10"
+                  />
+                  <Input
+                    placeholder="URL GitHub"
+                    value={formData.github}
+                    onChange={(e) => setFormData({...formData, github: e.target.value})}
+                    className="bg-[#1c1c22] border-white/10"
+                  />
+                </div>
+                
+                <Select value={formData.featured} onValueChange={(value) => setFormData({...formData, featured: value})}>
+                  <SelectTrigger className="bg-[#1c1c22] border-white/10">
+                    <SelectValue placeholder="Destaque" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="true">Sim</SelectItem>
+                    <SelectItem value="false">Não</SelectItem>
+                  </SelectContent>
+                </Select>
+                
+                <div className="flex gap-2">
+                  <Button type="submit" className="flex-1">
+                    {editingProject ? "Atualizar" : "Criar"} Projeto
+                  </Button>
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    onClick={() => setIsDialogOpen(false)}
+                  >
+                    Cancelar
+                  </Button>
+                </div>
+              </form>
+            </DialogContent>
+          </Dialog>
+        </div>
+
+        <div className="grid gap-4">
+          {projects.map((project) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-[#27272c] p-6 rounded-xl border border-white/10"
+            >
+              <div className="flex items-start justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-accent font-bold">{project.num}</span>
+                    <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+                    {project.featured && (
+                      <span className="bg-accent text-primary px-2 py-1 rounded text-sm">Destaque</span>
+                    )}
+                  </div>
+                  <p className="text-white/60 mb-2">{project.description}</p>
+                  <div className="flex items-center gap-4 text-sm text-white/40">
+                    <span>Categoria: {project.category}</span>
+                    <span>•</span>
+                    <span>Techs: {Array.isArray(project.stack) ? project.stack.join(", ") : project.stack}</span>
+                  </div>
+                  <div className="flex gap-2 mt-3">
+                    <Link href={project.live} target="_blank" className="text-accent hover:text-accent-hover">
+                      <FiEye className="inline mr-1" /> Live
+                    </Link>
+                    <Link href={project.github} target="_blank" className="text-accent hover:text-accent-hover">
+                      GitHub
+                    </Link>
+                  </div>
+                </div>
+                
+                <div className="flex gap-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleEdit(project)}
+                    className="border-white/20"
+                  >
+                    <FiEdit2 />
+                  </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => handleDelete(project.id)}
+                    className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+                  >
+                    <FiTrash2 />
+                  </Button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Button 
+            variant="outline" 
+            onClick={() => setIsAuthenticated(false)}
+            className="border-white/20"
+          >
+            Logout
+          </Button>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default ProjectsAdmin;
