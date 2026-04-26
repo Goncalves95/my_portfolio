@@ -16,22 +16,38 @@ import {
 } from "@/components/ui/select";
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const info = [
-  {
-    icon: <FaPhoneAlt />,
-    title: "Phone",
-    description: "+41 77 814 84 79",
-  },
   {
     icon: <FaEnvelope />,
     title: "Email",
     description: "fernandojcg22@gmail.com",
+    url: "mailto:fernandojcg22@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
     title: "Address",
-    description: "8052 Zurich, Switzerland",
+    description: "Zurich, Switzerland",
+    url: "https://maps.google.com/?q=Zurich,Switzerland",
+  },
+];
+
+const socialLinks = [
+  {
+    icon: <FaGithub />,
+    title: "GitHub",
+    url: "https://github.com/Goncalves95",
+  },
+  {
+    icon: <FaLinkedin />,
+    title: "LinkedIn",
+    url: "https://linkedin.com/in/fernando-gonçalves-95b5b8174",
+  },
+  {
+    icon: <FaYoutube />,
+    title: "YouTube",
+    url: "https://youtube.com/@fernandogoncalves",
   },
 ];
 
@@ -201,21 +217,50 @@ const Contact = () => {
           </div>
           {/* info */}
           <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
-            <ul className="flex flex-col gap-10">
-              {info.map((item, index) => {
-                return (
-                  <li key={index} className="flex items-center gap-6">
-                    <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center">
-                      <div className="text-[28px]">{item.icon}</div>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-white/60">{item.title}</p>
-                      <h3 className="text-xl">{item.description}</h3>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            <div className="flex flex-col gap-10">
+              <ul className="flex flex-col gap-10">
+                {info.map((item, index) => {
+                  return (
+                    <li key={index} className="flex items-center gap-6">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 group cursor-pointer"
+                      >
+                        <div className="text-[28px] group-hover:scale-110 transition-transform duration-300">
+                          {item.icon}
+                        </div>
+                      </a>
+                      <div className="flex-1">
+                        <p className="text-white/60">{item.title}</p>
+                        <h3 className="text-xl">{item.description}</h3>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+              
+              {/* Social Links */}
+              <div className="mt-8">
+                <p className="text-white/60 mb-4">Follow me</p>
+                <div className="flex gap-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-[#27272c] text-accent rounded-md flex items-center justify-center hover:bg-accent hover:text-primary transition-all duration-300 group"
+                    >
+                      <div className="text-[28px] group-hover:scale-110 transition-transform duration-300">
+                        {social.icon}
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
