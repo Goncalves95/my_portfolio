@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -54,7 +54,7 @@ const socialLinks = [
 
 import { motion } from "framer-motion";
 
-const Contact = () => {
+function ContactContent() {
   const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     firstname: '',
@@ -278,6 +278,16 @@ const Contact = () => {
         </div>
       </div>
     </motion.section>
+  );
+};
+
+const Contact = () => {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-primary flex items-center justify-center">
+      <div className="text-accent text-2xl">Loading...</div>
+    </div>}>
+      <ContactContent />
+    </Suspense>
   );
 };
 
