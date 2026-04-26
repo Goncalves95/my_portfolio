@@ -9,28 +9,28 @@ const services = [
     title: "Web Development",
     description:
       "Where code meets creativity.",
-    href: "",
+    href: "/services/web-development",
   },
   {
     num: "02",
     title: "UI/UX Design",
     description:
       "Transforming interactions into engaging experiences.",
-    href: "",
+    href: "/services/ui-ux-design",
   },
   {
     num: "03",
     title: "Web Design",
     description:
       "Building data foundations for informed decisions.",
-    href: "",
+    href: "/services/web-design",
   },
   {
     num: "04",
     title: "New Projects",
     description:
       "Always looking for exciting collaborations. Let's work together to bring your vision to life.",
-    href: "",
+    href: "/services/new-projects",
   },
 ];
 

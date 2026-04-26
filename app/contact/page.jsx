@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,6 +17,7 @@ import {
 
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { FaGithub, FaLinkedin, FaYoutube } from "react-icons/fa";
+import { useSearchParams } from "next/navigation";
 
 const info = [
   {
@@ -54,6 +55,7 @@ const socialLinks = [
 import { motion } from "framer-motion";
 
 const Contact = () => {
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -64,6 +66,17 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+  // Check for pre-selected service from URL parameters
+  useEffect(() => {
+    const serviceParam = searchParams.get('service');
+    if (serviceParam) {
+      setFormData(prev => ({
+        ...prev,
+        service: serviceParam
+      }));
+    }
+  }, [searchParams]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
