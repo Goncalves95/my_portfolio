@@ -19,12 +19,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getWorkProjects, addWorkProject, updateWorkProject, deleteWorkProject, getGitHubProjectsWithSettings, updateGitHubProjectSettings } from "@/lib/work-projects";
+import { getWorkProjects, addWorkProject, updateWorkProject, deleteWorkProject, getGitHubProjectsWithSettings, updateGitHubProjectSettings, updateProjectsOrder } from "@/lib/work-projects";
 import { FiEdit2, FiTrash2, FiPlus, FiEye, FiGithub, FiExternalLink } from "react-icons/fi";
 import { 
   Switch
 } from "@/components/ui/switch";
 import Link from "next/link";
+import { useSimpleDragAndDrop } from "@/hooks/useSimpleDragAndDrop";
 
 const ProjectsAdmin = () => {
   const [projects, setProjects] = useState([]);
@@ -33,6 +34,8 @@ const ProjectsAdmin = () => {
   const [editingProject, setEditingProject] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [githubProjectSettings, setGithubProjectSettings] = useState([]);
+  const [allGithubRepos, setAllGithubRepos] = useState([]);
+  const [dialogMode, setDialogMode] = useState('manual'); // 'manual' | 'github'
   const [formData, setFormData] = useState({
     title: "",
     category: "",
@@ -51,6 +54,7 @@ const ProjectsAdmin = () => {
     if (isAuthenticated) {
       loadProjects();
       loadGithubProjectSettings();
+      loadAllGithubRepos();
     }
   }, [isAuthenticated]);
 
@@ -60,8 +64,24 @@ const ProjectsAdmin = () => {
   };
 
   const loadGithubProjectSettings = async () => {
-    const settingsData = await getGitHubProjectsWithSettings();
-    setGithubProjectSettings(settingsData);
+    try {
+      const settings = await getGitHubProjectsWithSettings();
+      setGithubProjectSettings(settings);
+    } catch (error) {
+      console.error('Error loading GitHub project settings:', error);
+    }
+  };
+
+  const loadAllGithubRepos = async () => {
+    try {
+      const response = await fetch('/api/github/projects');
+      if (response.ok) {
+        const repos = await response.json();
+        setAllGithubRepos(repos);
+      }
+    } catch (error) {
+      console.error('Error loading all GitHub repos:', error);
+    }
   };
 
   const handleLogin = (e) => {
@@ -116,11 +136,32 @@ const ProjectsAdmin = () => {
   };
 
   const handleToggleVisibility = async (projectId, visible) => {
-    const success = await updateGitHubProjectSettings(projectId, visible, undefined);
-    if (success) {
-      loadGithubProjectSettings();
-      loadProjects();
+    try {
+      const success = await updateGitHubProjectSettings(projectId, visible);
+      if (success) {
+        await loadGithubProjectSettings();
+        await loadProjects();
+      }
+    } catch (error) {
+      console.error('Error toggling project visibility:', error);
     }
+  };
+
+  const handleToggleRepoVisibility = async (repoId, visible) => {
+    try {
+      const success = await updateGitHubProjectSettings(repoId, visible);
+      if (success) {
+        await loadGithubProjectSettings();
+        await loadProjects();
+      }
+    } catch (error) {
+      console.error('Error toggling repo visibility:', error);
+    }
+  };
+
+  const openDialog = (mode = 'manual') => {
+    setDialogMode(mode);
+    setIsDialogOpen(true);
   };
 
   const moveProject = async (projectId, direction) => {
@@ -159,6 +200,22 @@ const ProjectsAdmin = () => {
     setEditingProject(null);
   };
 
+  const handleReorder = async (newOrder) => {
+    try {
+      const success = await updateProjectsOrder(newOrder);
+      if (success) {
+        // Force a complete reload to ensure state is updated
+        await loadProjects();
+        await loadGithubProjectSettings();
+      }
+    } catch (error) {
+      console.error('Error updating project order:', error);
+    }
+  };
+
+  // Use drag and drop hook for all projects
+  const { getDragProps, isDragging } = useSimpleDragAndDrop(projects, handleReorder);
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-primary">
@@ -192,21 +249,44 @@ const ProjectsAdmin = () => {
         animate={{ opacity: 1 }}
         className="max-w-6xl mx-auto"
       >
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold text-white">Gestão de Projetos</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-white">Gestão de Projetos</h1>
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
-              <Button onClick={resetForm} className="flex items-center gap-2">
-                <FiPlus /> Novo Projeto
+              <Button className="bg-accent text-primary hover:bg-accent/90">
+                <FiPlus className="mr-2" />
+                Adicionar Projeto
               </Button>
             </DialogTrigger>
-            <DialogContent className="bg-[#27272c] border-white/10 max-w-2xl">
+            <DialogContent className="bg-[#27272c] border border-white/10 max-w-4xl max-h-[90vh] overflow-y-auto">
               <DialogHeader>
                 <DialogTitle className="text-white">
-                  {editingProject ? "Editar Projeto" : "Novo Projeto"}
+                  {editingProject ? 'Editar Projeto' : 'Adicionar Projeto'}
                 </DialogTitle>
               </DialogHeader>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              
+              {!editingProject && (
+                <div className="flex gap-2 mb-6">
+                  <Button
+                    variant={dialogMode === 'manual' ? 'default' : 'outline'}
+                    onClick={() => setDialogMode('manual')}
+                    className={dialogMode === 'manual' ? 'bg-accent text-primary' : 'border-white/20'}
+                  >
+                    Criar Manualmente
+                  </Button>
+                  <Button
+                    variant={dialogMode === 'github' ? 'default' : 'outline'}
+                    onClick={() => setDialogMode('github')}
+                    className={dialogMode === 'github' ? 'bg-accent text-primary' : 'border-white/20'}
+                  >
+                    Importar do GitHub
+                  </Button>
+                </div>
+              )}
+              
+              {/* Manual Project Form */}
+              {dialogMode === 'manual' && (
+                <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-2 gap-4">
                   <Input
                     placeholder="Título"
@@ -292,21 +372,68 @@ const ProjectsAdmin = () => {
                   </Button>
                 </div>
               </form>
+              )}
+              
+              {/* GitHub Repos List */}
+              {dialogMode === 'github' && (
+                <div className="space-y-4">
+                  <div className="text-white/60 text-sm">
+                    Selecione os repositórios GitHub que deseja incluir nos seus projetos
+                  </div>
+                  <div className="max-h-96 overflow-y-auto space-y-2">
+                    {allGithubRepos.map((repo) => {
+                      const isVisible = githubProjectSettings.find(p => p.id === repo.id)?.visible !== false;
+                      return (
+                        <div key={repo.id} className="flex items-center justify-between p-3 bg-[#1c1c22] rounded-lg border border-white/10">
+                          <div className="flex-1">
+                            <h4 className="text-white font-medium">{repo.title}</h4>
+                            <p className="text-white/60 text-sm">{repo.description}</p>
+                            <div className="flex items-center gap-2 mt-1">
+                              <span className="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">
+                                {repo.language || 'Unknown'}
+                              </span>
+                              <span className="text-xs text-white/40">
+                                ⭐ {repo.stars || 0}
+                              </span>
+                            </div>
+                          </div>
+                          <Switch
+                            checked={isVisible}
+                            onCheckedChange={(checked) => handleToggleRepoVisibility(repo.id, checked)}
+                          />
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="flex justify-end">
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setIsDialogOpen(false)}
+                      className="border-white/20"
+                    >
+                      Fechar
+                    </Button>
+                  </div>
+                </div>
+              )}
             </DialogContent>
           </Dialog>
         </div>
 
         <div className="grid gap-4">
-          {projects.map((project) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="bg-[#27272c] p-6 rounded-xl border border-white/10"
-            >
+          {projects.map((project, index) => {
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-[#27272c] p-6 rounded-xl border border-white/10 cursor-move"
+                {...getDragProps(index)}
+              >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
+                    <span className="text-white/40 text-sm">⋮⋮</span>
                     <span className="text-accent font-bold">{project.num}</span>
                     <h3 className="text-xl font-semibold text-white">{project.title}</h3>
                     {project.featured && (
@@ -342,25 +469,8 @@ const ProjectsAdmin = () => {
                 <div className="flex gap-2">
                   {project.source === 'github' ? (
                     <>
-                      <div className="flex flex-col gap-1">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => moveProject(project.id, 'up')}
-                          disabled={projects.filter(p => p.source === 'github').findIndex(p => p.id === project.id) === 0}
-                          className="border-white/20"
-                        >
-                          ↑
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => moveProject(project.id, 'down')}
-                          disabled={projects.filter(p => p.source === 'github').findIndex(p => p.id === project.id) === projects.filter(p => p.source === 'github').length - 1}
-                          className="border-white/20"
-                        >
-                          ↓
-                        </Button>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-white/60">Arraste ⋮⋮ para reordenar</span>
                       </div>
                       
                       <Switch
@@ -370,6 +480,10 @@ const ProjectsAdmin = () => {
                     </>
                   ) : (
                     <>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-white/60">Arraste ⋮⋮ para reordenar</span>
+                      </div>
+                      
                       <Button
                         size="sm"
                         variant="outline"
@@ -391,7 +505,8 @@ const ProjectsAdmin = () => {
                 </div>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="mt-8 text-center">
