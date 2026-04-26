@@ -110,7 +110,7 @@ const Contact = () => {
       const result = await response.json();
 
       if (response.ok) {
-        setSubmitStatus({ success: true, message: 'Mensagem enviada com sucesso!' });
+        setSubmitStatus({ success: true, message: 'Message sent successfully!' });
         // Reset form
         setFormData({
           firstname: '',
@@ -121,10 +121,10 @@ const Contact = () => {
           message: ''
         });
       } else {
-        setSubmitStatus({ success: false, message: result.error || 'Erro ao enviar mensagem' });
+        setSubmitStatus({ success: false, message: result.error || 'Error sending message' });
       }
     } catch (error) {
-      setSubmitStatus({ success: false, message: 'Erro de conexão. Tente novamente.' });
+      setSubmitStatus({ success: false, message: 'Connection error. Try again.' });
     } finally {
       setIsSubmitting(false);
     }
