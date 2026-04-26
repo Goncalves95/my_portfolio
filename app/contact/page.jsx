@@ -47,7 +47,7 @@ const socialLinks = [
   {
     icon: <FaYoutube />,
     title: "YouTube",
-    url: "https://youtube.com/@fernandogoncalves",
+    url: "https://www.youtube.com/channel/UCaDB7N_v5ZuUD1BHarmzUZQ",
   },
 ];
 
