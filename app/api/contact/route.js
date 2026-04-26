@@ -78,9 +78,9 @@ export async function POST(request) {
     });
 
     if (error) {
-      console.error('Erro ao enviar email:', error);
+      console.error('Error sending email:', error);
       return NextResponse.json(
-        { error: 'Erro ao enviar mensagem. Tente novamente.' },
+        { error: 'Error sending message. Try again.' },
         { status: 500 }
       );
     }
@@ -88,7 +88,7 @@ export async function POST(request) {
     return NextResponse.json(
       { 
         success: true, 
-        message: 'Mensagem enviada com sucesso!',
+        message: 'Message sent successfully!',
         data 
       },
       { status: 200 }
@@ -97,7 +97,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Erro no servidor:', error);
     return NextResponse.json(
-      { error: 'Erro interno do servidor' },
+      { error: 'Internal server error' },
       { status: 500 }
     );
   }
