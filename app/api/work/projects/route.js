@@ -33,18 +33,54 @@ export async function GET() {
       console.error('Error fetching GitHub projects:', error);
     }
 
+    // Get unified project settings (order + visibility)
+    let projectSettings = {};
+    try {
+      const orderConfigPath = path.join(process.cwd(), 'data', 'projects-order.json');
+      const orderConfigData = fs.readFileSync(orderConfigPath, 'utf8');
+      const orderConfig = JSON.parse(orderConfigData);
+      projectSettings = orderConfig.projects || {};
+    } catch (error) {
+      console.log('No project settings found, using defaults');
+    }
+
+    // Get GitHub visibility settings (separate from order)
+    let githubVisibility = {};
+    try {
+      const settingsPath = path.join(process.cwd(), 'data', 'github-projects-config.json');
+      const settingsData = fs.readFileSync(settingsPath, 'utf8');
+      const settings = JSON.parse(settingsData);
+      githubVisibility = settings.projects || {};
+    } catch (error) {
+      console.log('No GitHub visibility settings found, using defaults');
+    }
+
     // Combine projects, giving priority to manual projects
     const allProjects = [
-      ...manualProjects.map(p => ({ ...p, source: 'manual', visible: p.visible !== false })),
-      ...githubProjects.map(p => ({ ...p, source: 'github', visible: p.visible !== false }))
+      ...manualProjects.map(p => ({ 
+        ...p, 
+        source: 'manual', 
+        visible: p.visible !== false,
+        order: projectSettings[p.id]?.order
+      })),
+      ...githubProjects.map(p => ({ 
+        ...p, 
+        source: 'github', 
+        visible: githubVisibility[p.id]?.visible !== undefined ? githubVisibility[p.id].visible : true,
+        order: projectSettings[p.id]?.order
+      }))
     ];
 
-    // Sort by order field first, then by dateAdded and featured status
+    // Sort by order first, then by dateAdded and featured status
     const sortedProjects = allProjects.sort((a, b) => {
       // If both have order, sort by order
       if (a.order !== undefined && b.order !== undefined) {
         return a.order - b.order;
       }
+      
+      // If only one has order, it comes first
+      if (a.order !== undefined && b.order === undefined) return -1;
+      if (a.order === undefined && b.order !== undefined) return 1;
       
       // Featured projects come first
       if (a.featured && !b.featured) return -1;

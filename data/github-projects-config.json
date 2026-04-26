@@ -1,7 +1,98 @@
 {
   "projects": {
     "github-678882598": {
+      "visible": false,
+      "order": 28
+    },
+    "github-773451135": {
+      "visible": false,
+      "order": 18
+    },
+    "github-770887707": {
+      "visible": false,
+      "order": 20
+    },
+    "github-756986699": {
+      "order": 22
+    },
+    "github-770478022": {
+      "order": 21,
       "visible": false
+    },
+    "github-752269146": {
+      "order": 23
+    },
+    "github-1070226258": {
+      "order": 2,
+      "visible": false
+    },
+    "github-1060892154": {
+      "order": 10,
+      "visible": false
+    },
+    "github-814740013": {
+      "visible": true,
+      "order": 1
+    },
+    "github-717156120": {
+      "order": 3,
+      "visible": false
+    },
+    "github-695855630": {
+      "order": 4
+    },
+    "github-695261125": {
+      "order": 5
+    },
+    "github-689059237": {
+      "order": 6
+    },
+    "github-687664932": {
+      "order": 7
+    },
+    "github-686067060": {
+      "order": 8
+    },
+    "github-1194345116": {
+      "order": 9
+    },
+    "github-1060868828": {
+      "order": 11
+    },
+    "github-1053450820": {
+      "order": 12
+    },
+    "github-1027200985": {
+      "order": 13
+    },
+    "github-957478976": {
+      "order": 14
+    },
+    "github-812321464": {
+      "order": 16
+    },
+    "github-840074724": {
+      "order": 15
+    },
+    "github-784847304": {
+      "order": 17
+    },
+    "github-770887359": {
+      "order": 19
+    },
+    "github-750008263": {
+      "order": 24,
+      "visible": true
+    },
+    "github-747833497": {
+      "order": 25
+    },
+    "github-747266990": {
+      "order": 26,
+      "visible": false
+    },
+    "github-718740278": {
+      "order": 27
     }
   },
   "defaultVisible": true
