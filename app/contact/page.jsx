@@ -42,7 +42,7 @@ const socialLinks = [
   {
     icon: <FaLinkedin />,
     title: "LinkedIn",
-    url: "https://linkedin.com/in/fernando-gonçalves-95b5b8174",
+    url: "https://www.linkedin.com/in/fernandojcgoncalves/",
   },
   {
     icon: <FaYoutube />,
