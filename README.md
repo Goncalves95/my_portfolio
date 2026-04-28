@@ -4,7 +4,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Goncalves95-blue?style=flat-square&logo=github)](https://github.com/Goncalves95)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Fernando%20Gonçalves-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/fernandojcgoncalves/)
 
-markdownCopiar## 🚀 Sobre Mim
+## 🚀 Sobre Mim
 
 Sou Fernando Gonçalves, um Engenheiro de Software Full Stack de 29 anos, apaixonado e especializado em Análise de Dados e Machine Learning. Atualmente, estou baseado em Zurique, Suíça, onde busco oportunidades desafiadoras no cenário tecnológico internacional.
 
