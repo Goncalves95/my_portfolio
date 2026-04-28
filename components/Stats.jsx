@@ -2,6 +2,46 @@
 
 import CountUp from "react-countup";
 import { useState, useEffect } from "react";
+import Link from "next/link";
+
+// Import skills data from resume page - exact match with resume page
+const skillsData = [
+  { name: "HTML 5" },
+  { name: "CSS 3" },
+  { name: "JavaScript" },
+  { name: "React.js" },
+  { name: "Typescript" },
+  { name: "Next.js" },
+  { name: "Tailwind.css" },
+  { name: "Node.js" },
+  { name: "Angular" },
+  { name: "Python" },
+  { name: "Liquibase" },
+  { name: "Azure" },
+  { name: "Flask" },
+  { name: "Django" },
+  { name: "Pandas" },
+  { name: "NumPy" },
+  { name: "Scikit-Learn" },
+  { name: "AWS" },
+  { name: "Slack" },
+  { name: "Adobe" },
+  { name: "BootStrap" },
+  { name: "GitHub" },
+  { name: "Git" },
+  { name: "PHP" },
+  { name: "figma" },
+  { name: "WordPress" },
+  { name: "GoogleEnv" },
+  { name: "VisualStudioCode" },
+  { name: "MacOS" },
+  { name: "Linux" },
+  { name: "Docker" },
+  { name: "SQL" },
+  { name: "Heroku" },
+  { name: "MySQL" },
+  { name: "Azure"},
+];
 
 const defaultStats = [
   {
@@ -13,7 +53,7 @@ const defaultStats = [
     text: "Projects completed",
   },
   {
-    num: 25,
+    num: skillsData.length,
     text: "Technologies mastered",
   },
   {
@@ -43,8 +83,8 @@ const Stats = () => {
               text: "GitHub repositories",
             },
             {
-              num: data.stats.languages.length,
-              text: "Technologies used",
+              num: skillsData.length,
+              text: "Technologies mastered",
             },
             {
               num: data.stats.totalCommits,
@@ -69,24 +109,72 @@ const Stats = () => {
       <div className="container mx-auto">
         <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
           {stats.map((item, index) => {
+            const isTechItem = item.text === "Technologies mastered";
+            
             return (
               <div
                 className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
                 key={index}
               >
-                <CountUp
-                  end={item.num}
-                  duration={5}
-                  delay={2}
-                  className="text-4xl xl:text-6xl font-extrabold"
-                />
-                <p
-                  className={`${
-                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                  } leading-snug text-white/80`}
-                >
-                  {item.text}
-                </p>
+                {isTechItem ? (
+                  <Link href="/resume#skills" className="flex gap-4 items-center hover:opacity-80 transition-opacity cursor-pointer group">
+                    <CountUp
+                      end={item.num}
+                      duration={5}
+                      delay={2}
+                      className={`text-4xl xl:text-6xl font-extrabold text-accent stat-number-${index} group-hover:text-white transition-colors`}
+                      onStart={() => {
+                        // Green during animation
+                        const element = document.querySelector(`.stat-number-${index}`);
+                        if (element) element.classList.add('text-accent');
+                      }}
+                      onEnd={() => {
+                        // White after animation
+                        const element = document.querySelector(`.stat-number-${index}`);
+                        if (element) {
+                          element.classList.remove('text-accent');
+                          element.classList.add('text-white');
+                        }
+                      }}
+                    />
+                    <p
+                      className={`${
+                        item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                      } leading-snug text-white/80 group-hover:text-accent transition-colors`}
+                    >
+                      {item.text}
+                    </p>
+                  </Link>
+                ) : (
+                  <>
+                    <CountUp
+                      end={item.num}
+                      duration={5}
+                      delay={2}
+                      className={`text-4xl xl:text-6xl font-extrabold text-accent stat-number-${index}`}
+                      onStart={() => {
+                        // Green during animation
+                        const element = document.querySelector(`.stat-number-${index}`);
+                        if (element) element.classList.add('text-accent');
+                      }}
+                      onEnd={() => {
+                        // White after animation
+                        const element = document.querySelector(`.stat-number-${index}`);
+                        if (element) {
+                          element.classList.remove('text-accent');
+                          element.classList.add('text-white');
+                        }
+                      }}
+                    />
+                    <p
+                      className={`${
+                        item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                      } leading-snug text-white/80`}
+                    >
+                      {item.text}
+                    </p>
+                  </>
+                )}
               </div>
             );
           })}
