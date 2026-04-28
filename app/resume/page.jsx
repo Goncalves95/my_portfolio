@@ -19,12 +19,13 @@ import {
   FaGoogle,
   FaPhp,
   FaAngular,
+  FaDatabase,
 
 } from "react-icons/fa";
 
 import { TbBrandVscode, TbFileTypeSql, TbBrandDocker } from "react-icons/tb";
 
-import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango, SiTypescript, SiMysql, } from "react-icons/si";
+import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango, SiTypescript, SiMysql, SiAzure, } from "react-icons/si";
 
 // about data
 const about = {
@@ -158,6 +159,14 @@ const skills = {
     {
       icon: <FaPython />,
       name: "Python",
+    },
+    {
+      icon: <FaDatabase />,
+      name: "Liquibase",
+    },
+    {
+      icon: <SiAzure />,
+      name: "Azure",
     },
     {
       icon: <FaFlask  />,

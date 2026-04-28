@@ -8,12 +8,12 @@ import Image from "next/image";
 // Sample projects data
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "/assets/work/web-dev-1.jpg",
-    github: "https://github.com/Goncalves95/ecommerce-platform",
-    demo: "https://demo.example.com"
+    title: "Personal Portfolio Website",
+    description: "Modern portfolio website built with Next.js 14, featuring dynamic project management, contact forms with email integration, GitHub API integration, and responsive design with smooth animations.",
+    tech: ["Next.js", "React", "TailwindCSS", "Framer Motion", "GitHub API", "Resend"],
+    image: "/assets/work/portfolio-website.png",
+    github: "https://github.com/Goncalves95/my_portfolio",
+    demo: "https://iamfernando.vercel.app/"
   },
   {
     title: "Task Management App",
