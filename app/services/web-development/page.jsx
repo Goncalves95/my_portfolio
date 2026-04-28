@@ -131,12 +131,12 @@ const WebDevelopment = () => {
                   </div>
                   <div className="flex gap-3">
                     <Link href={project.github} target="_blank">
-                      <Button variant="outline" size="sm" className="text-xs">
-                        GitHub
+                      <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-primary transition-all duration-300">
+                        View Code
                       </Button>
                     </Link>
                     <Link href={project.demo} target="_blank">
-                      <Button size="sm" className="text-xs">
+                      <Button className="bg-accent text-primary hover:bg-accent/90 transition-all duration-300">
                         Live Demo
                       </Button>
                     </Link>

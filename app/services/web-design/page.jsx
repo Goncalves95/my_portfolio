@@ -170,7 +170,7 @@ const WebDesign = () => {
                     ))}
                   </div>
                   <Link href={project.live} target="_blank">
-                    <Button size="sm" className="w-full text-xs">
+                    <Button className="w-full bg-accent text-primary hover:bg-accent/90 transition-all duration-300">
                       View Live Site
                     </Button>
                   </Link>

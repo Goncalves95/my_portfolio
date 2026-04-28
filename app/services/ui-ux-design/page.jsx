@@ -170,7 +170,7 @@ const UiUxDesign = () => {
                     ))}
                   </div>
                   <Link href={project.caseStudy} target="_blank">
-                    <Button variant="outline" size="sm" className="w-full text-xs">
+                    <Button variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-primary transition-all duration-300">
                       View Case Study
                     </Button>
                   </Link>
