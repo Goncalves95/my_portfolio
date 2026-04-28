@@ -2,7 +2,7 @@
 
 [![Website](https://img.shields.io/badge/Website-iamfernando.io-blue?style=flat-square&logo=google-chrome)](http://www.iamfernando.io)
 [![GitHub](https://img.shields.io/badge/GitHub-Goncalves95-blue?style=flat-square&logo=github)](https://github.com/Goncalves95)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fernando%20Gonçalves-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/seuperfil)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Fernando%20Gonçalves-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/fernandojcgoncalves/)
 
 markdownCopiar## 🚀 Sobre Mim
 
@@ -79,42 +79,35 @@ Estou em busca de oportunidades para crescer como Desenvolvedor de Software Full
 ---
 ---
 ---
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 🛠️ Tecnologias Utilizadas
 
-## Getting Started
-Icons for displa on tcnical scills from react icon's. 
+Este portfolio foi desenvolvido com as seguintes tecnologias:
 
-## Getting Started
+- **Framework:** Next.js 14.2.3 com App Router
+- **Linguagem:** JavaScript/React 18
+- **Estilização:** TailwindCSS
+- **Animações:** Framer Motion
+- **Componentes UI:** Radix UI
+- **Ícones:** React Icons
+- **Fontes:** JetBrains Mono
 
-First, run the development server:
+## 🚀 Como Executar
+
+Para executar este projeto localmente:
 
 ```bash
+# Instalar dependências
+npm install
+
+# Executar servidor de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📦 Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **`app/`** - Páginas e componentes principais
+- **`components/`** - Componentes reutilizáveis
+- **`public/`** - Assets estáticos (CV, imagens)
+- **`lib/`** - Utilitários e configurações
