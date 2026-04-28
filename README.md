@@ -1,113 +1,113 @@
-# Olá, eu sou Fernando Gonçalves! 👋
+# Hello, I'm Fernando Gonçalves! 👋
 
 [![Website](https://img.shields.io/badge/Website-iamfernando.io-blue?style=flat-square&logo=google-chrome)](http://www.iamfernando.io)
 [![GitHub](https://img.shields.io/badge/GitHub-Goncalves95-blue?style=flat-square&logo=github)](https://github.com/Goncalves95)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Fernando%20Gonçalves-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/fernandojcgoncalves/)
 
-## 🚀 Sobre Mim
+## 🚀 About Me
 
-Sou Fernando Gonçalves, um Engenheiro de Software Full Stack de 29 anos, apaixonado e especializado em Análise de Dados e Machine Learning. Atualmente, estou baseado em Zurique, Suíça, onde busco oportunidades desafiadoras no cenário tecnológico internacional.
+I'm Fernando Gonçalves, a 29-year-old Full Stack Software Engineer passionate and specialized in Data Analytics and Machine Learning. Currently, I'm based in Zurich, Switzerland, where I seek challenging opportunities in the international technology landscape.
 
-Minha jornada profissional está apenas começando, mas estou determinado a crescer rapidamente e fazer contribuições significativas. Tenho um talento especial para debugging, uma habilidade que considero fundamental no desenvolvimento de software robusto e eficiente.
+My professional journey is just beginning, but I'm determined to grow rapidly and make significant contributions. I have a special talent for debugging, a skill I consider fundamental in developing robust and efficient software.
 
-Minhas competências incluem:
+My competencies include:
 
-- Desenvolvimento Full Stack com foco em tecnologias modernas
-- Análise de Dados e implementação de soluções de Machine Learning
-- Excelente capacidade de resolução de problemas e debugging
-- Adaptabilidade rápida a novas tecnologias e ambientes de trabalho
-- Comunicação eficaz em equipes multiculturais
+- Full Stack development with focus on modern technologies
+- Data Analysis and Machine Learning solutions implementation
+- Excellent problem-solving and debugging capabilities
+- Quick adaptation to new technologies and work environments
+- Effective communication in multicultural teams
 
-Estou sempre em busca de novos desafios e oportunidades para aplicar minhas habilidades em projetos inovadores. Minha localização em Zurique me coloca no coração de um dos centros tecnológicos mais dinâmicos da Europa, e estou ansioso para colaborar em projetos que impulsionem a indústria de tecnologia para frente.
+I'm always seeking new challenges and opportunities to apply my skills in innovative projects. My location in Zurich places me in the heart of one of Europe's most dynamic technology centers, and I'm eager to collaborate on projects that drive the technology industry forward.
 
-Se você procura um desenvolvedor dedicado, com uma mente analítica afiada e habilidades de debugging excepcionais, estou pronto para contribuir e crescer junto com sua equipe!
+If you're looking for a dedicated developer with a sharp analytical mind and exceptional debugging skills, I'm ready to contribute and grow with your team!
 
-## 💻 Competências Principais
+## 💻 Core Skills
 
-- **Linguagens de Programação:** HTML5, CSS, JavaScript, Python
-- **Tecnologias Front-End:** React
-- **Tecnologias Back-End:** Node.js, Express.js
-- **Bancos de Dados:** MongoDB, SQL
-- **Análise de Dados e Machine Learning:** NumPy, Pandas, scikit-learn, TensorFlow
-- **Ferramentas:** Jupyter Notebooks, Git
+- **Programming Languages:** HTML5, CSS, JavaScript, Python
+- **Front-End Technologies:** React
+- **Back-End Technologies:** Node.js, Express.js
+- **Databases:** MongoDB, SQL
+- **Data Analysis & Machine Learning:** NumPy, Pandas, scikit-learn, TensorFlow
+- **Tools:** Jupyter Notebooks, Git
 
-## 🎓 Formação Acadêmica
+## 🎓 Education
 
-- **Diploma em Desenvolvimento de Software Full Stack** 
-  Especialização em Análise de Dados e Machine Learning
+- **Full Stack Software Development Diploma**
+  Specialization in Data Analytics and Machine Learning
   Code Institute
 
-- **Bacharelado em Engenharia de Software** (2023 - 2025)
-  Universidade Aberta de Lisboa
+- **Software Engineering Bachelor's Degree** (2023 - 2025)
+  Open University of Lisbon
 
-## 🛠️ Projetos Destacados
+## 🛠️ Featured Projects
 
-1. **[Nome do Projeto 1](link_do_projeto)**
-   Breve descrição do projeto e tecnologias utilizadas.
+1. **[Project Name 1](project_link)**
+   Brief project description and technologies used.
 
-2. **[Nome do Projeto 2](link_do_projeto)**
-   Breve descrição do projeto e tecnologias utilizadas.
+2. **[Project Name 2](project_link)**
+   Brief project description and technologies used.
 
-3. **[Nome do Projeto 3](link_do_projeto)**
-   Breve descrição do projeto e tecnologias utilizadas.
+3. **[Project Name 3](project_link)**
+   Brief project description and technologies used.
 
-## 📈 Estatísticas do GitHub
+## 📈 GitHub Statistics
 
-![Estatísticas do GitHub](https://github-readme-stats.vercel.app/api?username=Goncalves95&show_icons=true&theme=radical)
+![GitHub Statistics](https://github-readme-stats.vercel.app/api?username=Goncalves95&show_icons=true&theme=radical)
 
-## 🌱 Aprendizado Contínuo
+## 🌱 Continuous Learning
 
-Estou constantemente aprimorando minhas habilidades através de cursos online, projetos pessoais e participação em comunidades de desenvolvedores. Atualmente, estou focado em aprofundar meus conhecimentos em:
+I'm constantly improving my skills through online courses, personal projects, and participation in developer communities. Currently, I'm focused on deepening my knowledge in:
 
-- Arquiteturas de microserviços
-- Desenvolvimento de APIs RESTful
-- Técnicas avançadas de Machine Learning
+- Microservices architectures
+- RESTful API development
+- Advanced Machine Learning techniques
 - Cloud Computing (AWS, Azure)
 
-## 🤝 Vamos Conectar!
+## 🤝 Let's Connect!
 
-Estou em busca de oportunidades para crescer como Desenvolvedor de Software Full Stack, com foco em Análise de Dados e Machine Learning. Se você está procurando um membro de equipe dedicado e entusiasta para seu time de desenvolvimento, estou pronto para colaborar e aprender!
+I'm seeking opportunities to grow as a Full Stack Software Developer with focus on Data Analytics and Machine Learning. If you're looking for a dedicated and enthusiastic team member for your development team, I'm ready to collaborate and learn!
 
-- 🌐 Website: [iamfernando.io](http://www.iamfernando.io)
-- 📧 Email: [seu_email@exemplo.com](mailto:seu_email@exemplo.com)
-- 💼 LinkedIn: [Fernando Gonçalves](https://www.linkedin.com/in/seuperfil)
-
----
-
-⭐️ De [@Goncalves95](https://github.com/Goncalves95) - Fernando Gonçalves #IamFernando
+- 🌐 Website: [fernandogoncalves.dev](https://fernandogoncalves.dev)
+- 📧 Email: [fernando.goncalves@example.com](mailto:fernando.goncalves@example.com)
+- 💼 LinkedIn: [Fernando Gonçalves](https://www.linkedin.com/in/fernando-goncalves-dev)
 
 ---
+
+⭐️ By [@Goncalves95](https://github.com/Goncalves95) - Fernando Gonçalves #IamFernando
+
 ---
 ---
-## 🛠️ Tecnologias Utilizadas
+---
+## 🛠️ Technologies Used
 
-Este portfolio foi desenvolvido com as seguintes tecnologias:
+This portfolio was developed with the following technologies:
 
-- **Framework:** Next.js 14.2.3 com App Router
-- **Linguagem:** JavaScript/React 18
-- **Estilização:** TailwindCSS
-- **Animações:** Framer Motion
-- **Componentes UI:** Radix UI
-- **Ícones:** React Icons
-- **Fontes:** JetBrains Mono
+- **Framework:** Next.js 14.2.3 with App Router
+- **Language:** JavaScript/React 18
+- **Styling:** TailwindCSS
+- **Animations:** Framer Motion
+- **UI Components:** Radix UI
+- **Icons:** React Icons
+- **Fonts:** JetBrains Mono
 
-## 🚀 Como Executar
+## 🚀 How to Run
 
-Para executar este projeto localmente:
+To run this project locally:
 
 ```bash
-# Instalar dependências
+# Install dependencies
 npm install
 
-# Executar servidor de desenvolvimento
+# Run development server
 npm run dev
 ```
 
-Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver o resultado.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-## 📦 Estrutura do Projeto
+## 📦 Project Structure
 
-- **`app/`** - Páginas e componentes principais
-- **`components/`** - Componentes reutilizáveis
-- **`public/`** - Assets estáticos (CV, imagens)
-- **`lib/`** - Utilitários e configurações
+- **`app/`** - Main pages and components
+- **`components/`** - Reusable components
+- **`public/`** - Static assets (CV, images)
+- **`lib/`** - Utilities and configurations
