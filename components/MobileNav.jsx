@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { CiMenuFries } from "react-icons/ci";
+import { FiDownload } from "react-icons/fi";
 
 const links = [
   {
@@ -60,6 +61,15 @@ const MobileNav = () => {
               </Link>
             );
           })}
+          <Link
+            href="/cv/Fernando_Goncalves_2026_foto_CV_Zurich.pdf"
+            download
+            target="_blank"
+            className="flex items-center gap-2 text-xl text-accent hover:text-accent-hover transition-all"
+          >
+            <FiDownload />
+            <span>Download CV</span>
+          </Link>
         </nav>
       </SheetContent>
     </Sheet>
