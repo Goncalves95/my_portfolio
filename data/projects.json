@@ -1,7 +1,20 @@
 [
   {
-    "id": 1,
+    "id": 6,
     "num": "01",
+    "category": "Full Stack",
+    "title": "InsurTech Claims Platform",
+    "description": "End-to-end automation of Swiss Krankenkassen medical invoice reimbursement — OCR extraction, Tarmed validation, franchise calculation and instant approval decisions.",
+    "stack": ["Java 21", "Spring Boot", "Angular", "Kafka", "PostgreSQL", "Docker", "Keycloak", "Azure"],
+    "image": "/assets/work/insurtech.png",
+    "live": "",
+    "github": "https://github.com/Goncalves95/InsurTech-Project",
+    "featured": true,
+    "dateAdded": "2026-06-02"
+  },
+  {
+    "id": 1,
+    "num": "02",
     "category": "frontend",
     "title": "Algarve Chef",
     "description": "Website for a catering company using HTML and CSS.",
@@ -14,7 +27,7 @@
   },
   {
     "id": 2,
-    "num": "02",
+    "num": "03",
     "category": "Snake Game",
     "title": "Snake Game",
     "description": "Snake Game with javascript. Have Fun.",
@@ -27,7 +40,7 @@
   },
   {
     "id": 3,
-    "num": "03",
+    "num": "04",
     "category": "Hangman Game",
     "title": "Hangman Game",
     "description": "Hangman Game with Python and DataBase.",
@@ -40,7 +53,7 @@
   },
   {
     "id": 4,
-    "num": "04",
+    "num": "05",
     "category": "Full Stack",
     "title": "Luso Bites",
     "description": "A blog about Portugal's cuisine.",
@@ -53,7 +66,7 @@
   },
   {
     "id": 5,
-    "num": "05",
+    "num": "06",
     "category": "Data",
     "title": "Heritage Housing",
     "description": "The Heritage Housing Ames project aims to provide a valuable tool for individuals looking to sell their houses in Ames, Iowa.",

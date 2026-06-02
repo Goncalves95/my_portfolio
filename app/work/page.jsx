@@ -71,12 +71,11 @@ const Work = () => {
               {/* project description */}
               <p className="text-white/60">{project.description}</p>
               {/* stack */}
-              <ul className="flex gap-4">
+              <ul className="flex flex-wrap gap-x-3 gap-y-1">
                 {project.stack.map((item, index) => {
                   return (
-                    <li key={index} className="text-xl text-accent">
+                    <li key={index} className="text-base text-accent whitespace-nowrap">
                       {typeof item === 'string' ? item : item.name}
-                      {/* remove the last comma */}
                       {index !== project.stack.length - 1 && ","}
                     </li>
                   );
@@ -87,18 +86,20 @@ const Work = () => {
               {/* buttons */}
               <div className="flex items-center gap-4">
                 {/* live project button */}
-                <Link href={project.live}>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+                {project.live && (
+                  <Link href={project.live}>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
                 {/* github project button */}
                 <Link href={project.github}>
                   <TooltipProvider delayDuration={100}>
@@ -125,7 +126,7 @@ const Work = () => {
               {projects.map((project, index) => {
                 return (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                    <div className="h-[460px] relative group flex justify-center items-center bg-gradient-to-br from-[#1c1c22] to-[#00ff99]/10">
                       {/* overlay */}
                       <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
                       {/* image */}
@@ -133,8 +134,9 @@ const Work = () => {
                         <Image
                           src={project.image}
                           fill
-                          className="object-cover"
+                          className="object-contain"
                           alt=""
+                          onError={(e) => { e.target.src = "/assets/work/thumb1.png"; }}
                         />
                       </div>
                     </div>

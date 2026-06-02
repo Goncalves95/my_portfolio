@@ -16,12 +16,12 @@ const projects = [
     demo: "https://iamfernando.vercel.app/"
   },
   {
-    title: "Task Management App",
-    description: "Collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Socket.io"],
-    image: "/assets/work/web-dev-2.jpg",
-    github: "https://github.com/Goncalves95/task-manager",
-    demo: "https://tasks.example.com"
+    title: "InsurTech Claims Platform",
+    description: "End-to-end automation of Swiss Krankenkassen medical invoice reimbursement — OCR extraction, Tarmed validation, franchise calculation and instant approval decisions.",
+    tech: ["Java 21", "Spring Boot", "Angular", "Kafka", "PostgreSQL", "Keycloak", "Azure"],
+    image: "/assets/work/insurtech.png",
+    github: "https://github.com/Goncalves95/InsurTech-Project",
+    demo: ""
   },
   {
     title: "API Dashboard",
@@ -135,11 +135,13 @@ const WebDevelopment = () => {
                         View Code
                       </Button>
                     </Link>
-                    <Link href={project.demo} target="_blank">
-                      <Button className="bg-accent text-primary hover:bg-accent/90 transition-all duration-300">
-                        Live Demo
-                      </Button>
-                    </Link>
+                    {project.demo && (
+                      <Link href={project.demo} target="_blank">
+                        <Button className="bg-accent text-primary hover:bg-accent/90 transition-all duration-300">
+                          Live Demo
+                        </Button>
+                      </Link>
+                    )}
                   </div>
                 </div>
               </motion.div>
