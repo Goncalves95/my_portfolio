@@ -25,7 +25,15 @@
   "github": {
     "username": "Goncalves95",
     "excludePrivateRepos": true,
-    "personalAccessToken": ""
+    "personalAccessToken": "",
+    "pinnedRepos": [
+      "InsurTech-Project",
+      "my_portfolio",
+      "LusoBites",
+      "PP5-Predictive-Analytics",
+      "Hangman-5.0",
+      "Algarve_Chef_Prime"
+    ]
   },
   "stats": {
     "overrideYearsOfExperience": true,

@@ -22,7 +22,7 @@ const services = [
     num: "03",
     title: "Web Design",
     description:
-      "Building data foundations for informed decisions.",
+      "Crafting clean, modern interfaces that balance aesthetics with usability.",
     href: "/services/web-design",
   },
   {

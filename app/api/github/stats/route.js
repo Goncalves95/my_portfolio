@@ -230,9 +230,18 @@ function getLanguages(repos) {
 }
 
 function getFeaturedRepos(repos) {
-  return repos
-    .filter(repo => !repo.fork && repo.description)
-    .sort((a, b) => b.stargazers_count - a.stargazers_count)
+  const pinned = config.github?.pinnedRepos || [];
+  const filtered = repos.filter(repo => !repo.fork && repo.description);
+
+  const pinnedRepos = pinned
+    .map(name => filtered.find(r => r.name === name))
+    .filter(Boolean);
+
+  const rest = filtered
+    .filter(r => !pinned.includes(r.name))
+    .sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+  return [...pinnedRepos, ...rest]
     .slice(0, 6)
     .map(repo => ({
       id: repo.id,

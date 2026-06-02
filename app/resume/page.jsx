@@ -20,18 +20,18 @@ import {
   FaPhp,
   FaAngular,
   FaDatabase,
-
+  FaJava,
 } from "react-icons/fa";
 
 import { TbBrandVscode, TbFileTypeSql, TbBrandDocker } from "react-icons/tb";
 
-import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango, SiTypescript, SiMysql, } from "react-icons/si";
+import { SiTailwindcss, SiScikitlearn, SiMacos, SiNextdotjs, SiHeroku, SiPandas, SiNumpy, SiAdobe, SiDjango, SiTypescript, SiMysql, SiMicrosoftazure, SiSpring, SiApachekafka, SiPostgresql } from "react-icons/si";
 
 // about data
 const about = {
   title: "About me",
   description:
-    "I'm Fernando Gonçalves, a passionate Full Stack Software Engineer specializing in Data Analytics and Machine Learning, eager to contribute to innovative software development projects. While my professional journey has just begun, I am determined to grow and rapidly develop my skills.",
+    "I'm Fernando Gonçalves, a Full Stack Software Engineer based in Zurich with 4+ years of experience building enterprise web applications. I specialise in Java/Spring Boot backends, Angular frontends, and cloud-native architectures with a strong focus on clean code and scalable design.",
   info: [
     {
       fieldName: "Name",
@@ -43,7 +43,7 @@ const about = {
     },
     {
       fieldName: "Experience",
-      fieldValue: "3+ Years",
+      fieldValue: "4+ Years",
     },
     {
       fieldName: "Nationality",
@@ -118,7 +118,7 @@ const education = {
 const skills = {
   title: "My skills",
   description:
-    "This is some of my best Skillls",
+    "Technologies and tools I work with on a daily basis.",
   skillList: [
     {
       icon: <FaHtml5 />,
@@ -165,15 +165,35 @@ const skills = {
       name: "Liquibase",
     },
     {
-      icon: <FaAws />,
+      icon: <FaJava />,
+      name: "Java",
+    },
+    {
+      icon: <SiSpring />,
+      name: "Spring Boot",
+    },
+    {
+      icon: <SiApachekafka />,
+      name: "Kafka",
+    },
+    {
+      icon: <SiPostgresql />,
+      name: "PostgreSQL",
+    },
+    {
+      icon: <SiMicrosoftazure />,
       name: "Azure",
     },
     {
-      icon: <FaFlask  />,
+      icon: <FaAws />,
+      name: "AWS",
+    },
+    {
+      icon: <FaFlask />,
       name: "Flask",
     },
     {
-      icon: <SiDjango  />,
+      icon: <SiDjango />,
       name: "Django",
     },
     {
@@ -189,20 +209,8 @@ const skills = {
       name: "Scikit-Learn",
     },
     {
-      icon: <FaAws />,
-      name: "AWS",
-    },
-    {
-      icon: <FaSlack />,
-      name: "Slack",
-    },
-    {
       icon: <SiAdobe />,
       name: "Adobe",
-    },
-    {
-      icon: <FaFlask  />,
-      name: "Flask",
     },
     {
       icon: <FaBootstrap />,
@@ -287,14 +295,14 @@ const Resume = () => {
     >
       <div className="container mx-auto">
         <Tabs
-          defaultValue="experience"
+          defaultValue="about"
           className="flex flex-col xl:flex-row gap-[60px]"
         >
           <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+            <TabsTrigger value="about">About me</TabsTrigger>
             <TabsTrigger value="experience">Experience</TabsTrigger>
             <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="skills">Skills</TabsTrigger>
-            <TabsTrigger value="about">About me</TabsTrigger>
           </TabsList>
 
           {/* content */}
@@ -410,10 +418,10 @@ const Resume = () => {
                     return (
                       <li
                         key={index}
-                        className="flex items-center justify-center xl:justify-start gap-4"
+                        className="flex items-center justify-center xl:justify-start gap-4 min-w-0"
                       >
-                        <span className="text-white/60">{item.fieldName}</span>
-                        <span className="text-xl">{item.fieldValue}</span>
+                        <span className="text-white/60 shrink-0">{item.fieldName}</span>
+                        <span className="text-xl break-all">{item.fieldValue}</span>
                       </li>
                     );
                   })}
